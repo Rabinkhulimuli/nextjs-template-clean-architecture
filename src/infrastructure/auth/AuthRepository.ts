@@ -1,6 +1,5 @@
-// Infrastructure: Auth Repository
-import { User, LoginCredentials, RegisterInput } from '@/domain/auth/User';
-import { IAuthService } from '@/domain/auth/AuthService';
+import { IAuthService } from '@/src/domain/auth/AuthService';
+import { LoginCredentials, RegisterInput, User } from '@/src/domain/auth/User';
 
 /**
  * Mock implementation of AuthService
@@ -11,9 +10,7 @@ export class AuthRepository implements IAuthService {
 
   async login(credentials: LoginCredentials): Promise<User> {
     // TODO: Implement actual authentication
-    const user = Array.from(this.users.values()).find(
-      (u) => u.email === credentials.email
-    );
+    const user = Array.from(this.users.values()).find(u => u.email === credentials.email);
 
     if (!user) {
       throw new Error('User not found');

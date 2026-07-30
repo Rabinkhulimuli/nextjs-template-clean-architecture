@@ -1,6 +1,7 @@
 // Application: Register Use Case
-import { User, RegisterInput } from '@/domain/auth/User';
-import { IAuthService } from '@/domain/auth/AuthService';
+
+import { IAuthService } from '@/src/domain/auth/AuthService';
+import { RegisterInput, User } from '@/src/domain/auth/User';
 
 export class RegisterUseCase {
   constructor(private authService: IAuthService) {}

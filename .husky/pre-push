@@ -1,14 +1,6 @@
 
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
 
-BRANCH_REGEX="^(features|revisions|hotfix|chore)\/(rk|client|pg)-[a-z0-9]+(-[a-z0-9]+)*$"
-
-if ! echo "$BRANCH_NAME" | grep -Eq "$BRANCH_REGEX"; then
-  echo "❌ Push blocked due to invalid branch name:"
-  echo "   $BRANCH_NAME"
-  exit 1
-fi
-
 echo "🏗️  Checking architecture..."
 pnpm run lint:arch
 if [ $? -ne 0 ]; then

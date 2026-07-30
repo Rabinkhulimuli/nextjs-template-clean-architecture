@@ -18,9 +18,8 @@ export function LoginForm() {
     setError('');
 
     try {
-      const user = await loginUseCase.execute({ email, password });
-      console.log('Login successful:', user);
-      // TODO: Handle successful login (redirect, store token, etc.)
+      await loginUseCase.execute({ email, password });
+      // console.log('Login successful:', user);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
     } finally {
@@ -29,41 +28,41 @@ export function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className='space-y-4'>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-1">
+        <label htmlFor='email' className='mb-1 block text-sm font-medium'>
           Email
         </label>
         <input
-          id="email"
-          type="email"
+          id='email'
+          type='email'
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          onChange={e => setEmail(e.target.value)}
+          className='w-full rounded-md border border-gray-300 px-3 py-2'
           required
         />
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium mb-1">
+        <label htmlFor='password' className='mb-1 block text-sm font-medium'>
           Password
         </label>
         <input
-          id="password"
-          type="password"
+          id='password'
+          type='password'
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md"
+          onChange={e => setPassword(e.target.value)}
+          className='w-full rounded-md border border-gray-300 px-3 py-2'
           required
         />
       </div>
 
-      {error && <div className="text-red-600 text-sm">{error}</div>}
+      {error && <div className='text-sm text-red-600'>{error}</div>}
 
       <button
-        type="submit"
+        type='submit'
         disabled={loading}
-        className="w-full bg-blue-600 text-white py-2 rounded-md disabled:bg-gray-400"
+        className='w-full rounded-md bg-blue-600 py-2 text-white disabled:bg-gray-400'
       >
         {loading ? 'Logging in...' : 'Login'}
       </button>

@@ -1,5 +1,4 @@
-// Infrastructure: Product Repository
-import { Product, CreateProductInput, UpdateProductInput } from '@/domain/inventory/Product';
+import { CreateProductInput, Product, UpdateProductInput } from '@/src/domain/inventory/Product';
 
 export class ProductRepository {
   private products: Map<string, Product> = new Map();

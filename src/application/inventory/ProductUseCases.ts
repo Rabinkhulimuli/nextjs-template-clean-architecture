@@ -1,8 +1,7 @@
 // Application: Product Use Cases
 
-import { CreateProductInput, Product } from "@/src/domain/inventory/Product";
-import { ProductRepository } from "@/src/infrastructure/inventory/ProductRepository";
-
+import { CreateProductInput, Product } from '@/src/domain/inventory/Product';
+import { ProductRepository } from '@/src/infrastructure/inventory/ProductRepository';
 
 export class ProductUseCases {
   constructor(private productRepository: ProductRepository) {}

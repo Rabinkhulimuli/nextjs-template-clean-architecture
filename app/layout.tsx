@@ -1,10 +1,15 @@
-import { Analytics } from '@vercel/analytics/next'
-import type { Metadata, Viewport } from 'next'
-import './globals.css'
+import { Analytics } from '@vercel/analytics/next';
+import type { Metadata, Viewport } from 'next';
+import './globals.css';
+import { Geist } from 'next/font/google';
+import { cn } from '@/lib/utils';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Clean Architecture Template - Next.js',
-  description: 'A Next.js template following Clean Architecture and Domain-Driven Design principles',
+  description:
+    'A Next.js template following Clean Architecture and Domain-Driven Design principles',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -23,7 +28,7 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
-}
+};
 
 export const viewport: Viewport = {
   colorScheme: 'light dark',
@@ -31,19 +36,19 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang='en' className={cn('font-sans', geist.variable)}>
+      <body className='antialiased'>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
-  )
+  );
 }
