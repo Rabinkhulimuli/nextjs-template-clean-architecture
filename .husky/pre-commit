@@ -1,7 +1,4 @@
 
-BRANCH_NAME=$(git symbolic-ref --short HEAD)
-
-
 echo "🔍 Running lint-staged on staged files..."
 pnpm lint-staged
 

@@ -1,6 +1,4 @@
 
-BRANCH_NAME=$(git symbolic-ref --short HEAD)
-
 echo "🏗️  Checking architecture..."
 pnpm run lint:arch
 if [ $? -ne 0 ]; then
